@@ -40,6 +40,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,10 +50,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Domain\Admin.cs" />
+    <Compile Include="Core\Domain\AdminClaim.cs" />
+    <Compile Include="Core\Domain\AdminLogin.cs" />
+    <Compile Include="Core\Domain\AdminRole.cs" />
     <Compile Include="Core\Domain\Game.cs" />
     <Compile Include="Core\Domain\Tournament.cs" />
+    <Compile Include="Core\Domain\User.cs" />
+    <Compile Include="Core\Domain\UserClaim.cs" />
+    <Compile Include="Core\Domain\UserLogin.cs" />
+    <Compile Include="Core\Domain\UserRole.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Migrations\201906221229583_Users_identity.cs" />
+    <Compile Include="Migrations\201906221229583_Users_identity.Designer.cs">
+      <DependentUpon>201906221229583_Users_identity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\My_DBContext.cs" />
     <Compile Include="Persistence\Repositories\Repository.cs" />
@@ -64,6 +78,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Persistence\EntityConfigurations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201906221229583_Users_identity.resx">
+      <DependentUpon>201906221229583_Users_identity.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

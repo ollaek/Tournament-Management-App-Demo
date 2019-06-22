@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -8,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace DAL.Core.Domain
 {
-    public class Game
+    [Table("AdminClaim")]
+    public partial class AdminClaim
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string ImagePath { get; set; }
+        public string UserId { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
+
+        public virtual Admin Admin { get; set; }
     }
 }

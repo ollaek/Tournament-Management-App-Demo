@@ -13,10 +13,8 @@ namespace DAL.Core.Domain
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Index(IsUnique = true)]
         public string Title { get; set; }
         public string Description { get; set; }
-        [Index(IsUnique = true)]
         public string Tag { get; set; }
         [ForeignKey("Game")]
         public int GameId { get; set; }
