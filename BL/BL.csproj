@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BussinesManagers\Classes\BaseBussinesManager.cs" />
+    <Compile Include="BussinesManagers\Classes\TournamentBussinesManager.cs" />
     <Compile Include="BussinesManagers\Interfaces\IBaseBussinesManager.cs" />
+    <Compile Include="BussinesManagers\Interfaces\ITournamentBussinesManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
