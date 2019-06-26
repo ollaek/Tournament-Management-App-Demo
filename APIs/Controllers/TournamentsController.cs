@@ -1,5 +1,6 @@
 ﻿using BL.BussinesManagers.Interfaces;
-using Ninject;
+using DAL.Core.Domain;
+//using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +13,12 @@ namespace APIs.Controllers
     public class TournamentsController : ApiController
     {
         private readonly ITournamentBussinesManager tournamentBussinesManager;
-        [Inject]
+       
         public TournamentsController(ITournamentBussinesManager _tournamentBussinesManager)
         {
             tournamentBussinesManager = _tournamentBussinesManager;
         }
-        public TournamentsController()
-        {
-        }
+       
 
         [HttpGet]
         public IHttpActionResult GetAllTournaments()
@@ -27,6 +26,23 @@ namespace APIs.Controllers
             try
             {
                 var result = tournamentBussinesManager.GetAll().ToList();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+        [HttpGet]
+        public IHttpActionResult SaveTournament(Tournament tournament)
+        {
+            try
+            {
+                tournamentBussinesManager.Add(tournament);
+                tournamentBussinesManager.AddInMemory(tournament);
+                tournamentBussinesManager.UnitOfWork.Complete();
+
                 return Ok();
             }
             catch (Exception ex)

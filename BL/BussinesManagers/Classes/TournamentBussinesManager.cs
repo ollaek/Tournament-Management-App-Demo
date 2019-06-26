@@ -13,7 +13,7 @@ namespace BL.BussinesManagers.Classes
     public class TournamentBussinesManager<TRepository> : BaseBussinesManager<Tournament, TRepository>,
             ITournamentBussinesManager where TRepository : ITournamentRepository
     {
-        public TournamentBussinesManager(IUnitOfWork _uow, IRepository<Tournament> _repository) : base(_uow, _repository)
+        public TournamentBussinesManager(IUnitOfWork _uow) : base(_uow)
         {
         }
     }

@@ -7,5 +7,7 @@ namespace DAL.Core
     {
        
         int Complete();
+        TRepository Repository<TEntity, TRepository>() where TEntity : class
+         where TRepository : IRepository<TEntity>;
     }
 }

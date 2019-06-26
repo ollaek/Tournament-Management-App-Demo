@@ -18,14 +18,15 @@ namespace BL.BussinesManagers.Classes
     public class BaseBussinesManager<TEntity, TRepository> : IBaseBussinesManager<TEntity> where TEntity : class
         where TRepository : IRepository<TEntity>
     {
-        public BaseBussinesManager(IUnitOfWork _uow,IRepository<TEntity> _repository)
+        public BaseBussinesManager(IUnitOfWork _uow)
         {
             if (_uow == null)
             {
                 throw new ArgumentNullException("no repository provided");
             }
             UnitOfWork = _uow;
-            Repository = _repository;
+            Repository = UnitOfWork.Repository<TEntity, TRepository>();
+
         }
 
         protected IRepository<TEntity> Repository { get; set; }
@@ -65,6 +66,11 @@ namespace BL.BussinesManagers.Classes
         }
 
         public void Add(TEntity entity)
+        {
+            Repository.Add(entity);
+            UnitOfWork.Complete();
+        }
+        public void AddInMemory(TEntity entity)
         {
             Repository.Add(entity);
         }
