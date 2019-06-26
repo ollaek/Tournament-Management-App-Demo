@@ -18,8 +18,8 @@ namespace APIs.Controllers
         {
             tournamentBussinesManager = _tournamentBussinesManager;
         }
-       
 
+        [Route("api/Tournaments/GetAll")]
         [HttpGet]
         public IHttpActionResult GetAllTournaments()
         {
@@ -34,14 +34,15 @@ namespace APIs.Controllers
                 throw;
             }
         }
-        [HttpGet]
+        [Route("api/Tournaments/Save")]
+        [HttpPost]
         public IHttpActionResult SaveTournament(Tournament tournament)
         {
             try
             {
                 tournamentBussinesManager.Add(tournament);
-                tournamentBussinesManager.AddInMemory(tournament);
-                tournamentBussinesManager.UnitOfWork.Complete();
+                //tournamentBussinesManager.AddInMemory(tournament);
+                //tournamentBussinesManager.UnitOfWork.Complete();
 
                 return Ok();
             }
