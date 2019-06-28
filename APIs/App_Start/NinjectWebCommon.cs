@@ -75,6 +75,7 @@ namespace APIs.App_Start
         {
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind<ITournamentBussinesManager>().To<TournamentBussinesManager<TournamentRepository>>();
+            kernel.Bind<IGameBussinesManager>().To<GameBussinesManager<GameRepository>>();
 
         }
     }

@@ -5,12 +5,12 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 
-namespace APIs.Enums
+namespace BL.Enums
 {
     public enum ResponseCodeEnum
     {
-        [Description("value 1")] Success = 1,
-        [Description("value 2")] Error = 2,
+        [Description("Request Done Successfully")] Success = 1,
+        [Description("An Error Occured")] Error = 2,
     }
 
 

@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -40,6 +43,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,10 +54,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BussinesManagers\Classes\BaseBussinesManager.cs" />
+    <Compile Include="BussinesManagers\Classes\GameBussinesManager.cs" />
     <Compile Include="BussinesManagers\Classes\TournamentBussinesManager.cs" />
     <Compile Include="BussinesManagers\Interfaces\IBaseBussinesManager.cs" />
+    <Compile Include="BussinesManagers\Interfaces\IGameBussinesManager.cs" />
     <Compile Include="BussinesManagers\Interfaces\ITournamentBussinesManager.cs" />
+    <Compile Include="Enums\ResponseCodeEnum.cs" />
+    <Compile Include="Helpers\AutoGenerators.cs" />
+    <Compile Include="Helpers\EnumAdditionalAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators\GeneralValidator.cs" />
+    <Compile Include="ViewModels\CustomResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

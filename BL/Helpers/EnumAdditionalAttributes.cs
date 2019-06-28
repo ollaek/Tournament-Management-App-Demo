@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 
-namespace APIs.Helpers
+namespace BL.Helpers
 {
     public static class EnumAdditionalAttributes
     {

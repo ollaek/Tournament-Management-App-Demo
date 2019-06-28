@@ -95,6 +95,7 @@
     <Compile Include="Core\Domain\UserLogin.cs" />
     <Compile Include="Core\Domain\UserRole.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\IGameRepository.cs" />
     <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="Core\Repositories\ITournamentRepository.cs" />
     <Compile Include="Migrations\201906221229583_Users_identity.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NinjectModules\HelperModule.cs" />
     <Compile Include="Persistence\My_DBContext.cs" />
+    <Compile Include="Persistence\Repositories\GameRepository.cs" />
     <Compile Include="Persistence\Repositories\Repository.cs" />
     <Compile Include="Persistence\Repositories\TournamentRepository.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
@@ -114,6 +116,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Media\GamesImages\" />
     <Folder Include="Persistence\EntityConfigurations\" />
   </ItemGroup>
   <ItemGroup>
