@@ -20,6 +20,9 @@ namespace DAL.Persistence
         public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<Tournament> Tournaments { get; set; }
         public virtual DbSet<Game> Games { get; set; }
+        public virtual DbSet<Phase> Phases { get; set; }
+        public virtual DbSet<Leg> Legs { get; set; }
+        public virtual DbSet<TournamentPhase> TournamentPhases { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

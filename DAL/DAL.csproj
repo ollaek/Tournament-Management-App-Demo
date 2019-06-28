@@ -89,7 +89,10 @@
     <Compile Include="Core\Domain\AdminLogin.cs" />
     <Compile Include="Core\Domain\AdminRole.cs" />
     <Compile Include="Core\Domain\Game.cs" />
+    <Compile Include="Core\Domain\Leg.cs" />
+    <Compile Include="Core\Domain\Phase.cs" />
     <Compile Include="Core\Domain\Tournament.cs" />
+    <Compile Include="Core\Domain\TournamentPhase.cs" />
     <Compile Include="Core\Domain\User.cs" />
     <Compile Include="Core\Domain\UserClaim.cs" />
     <Compile Include="Core\Domain\UserLogin.cs" />
@@ -101,6 +104,10 @@
     <Compile Include="Migrations\201906221229583_Users_identity.cs" />
     <Compile Include="Migrations\201906221229583_Users_identity.Designer.cs">
       <DependentUpon>201906221229583_Users_identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906281705019_Phases.cs" />
+    <Compile Include="Migrations\201906281705019_Phases.Designer.cs">
+      <DependentUpon>201906281705019_Phases.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NinjectModules\HelperModule.cs" />
@@ -125,6 +132,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201906221229583_Users_identity.resx">
       <DependentUpon>201906221229583_Users_identity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906281705019_Phases.resx">
+      <DependentUpon>201906281705019_Phases.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

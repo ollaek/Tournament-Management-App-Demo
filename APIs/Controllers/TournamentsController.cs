@@ -78,6 +78,31 @@ namespace APIs.Controllers
                   });
             }
         }
+        [Route("api/Tournaments/GetAllByGameId")]
+        [HttpGet]
+        public HttpResponseMessage GetAllByGameId(int id)
+        {
+            try
+            {
+                var tournaments = tournamentBussinesManager.GetAll().Where(x => x.GameId == id).ToList();
+                return Request.CreateResponse(HttpStatusCode.OK,
+                  new CustomResponse<Tournament>()
+                  {
+                      ResponseCode = (int)ResponseCodeEnum.Success,
+                      ResponseMessage = ResponseCodeEnum.Success.GetDescription(),
+                      ReturnObjectList = tournaments
+                  });
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest,
+                  new CustomResponse<Tournament>()
+                  {
+                      ResponseCode = (int)ResponseCodeEnum.Error,
+                      ResponseMessage = ResponseCodeEnum.Error.GetDescription()
+                  });
+            }
+        }
 
         [Route("api/Tournaments/Save")]
         [ResponseType(typeof(CustomResponse<Tournament>))]
