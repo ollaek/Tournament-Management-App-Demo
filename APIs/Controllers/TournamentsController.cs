@@ -17,10 +17,13 @@ namespace APIs.Controllers
     public class TournamentsController : ApiController
     {
         private readonly ITournamentBussinesManager tournamentBussinesManager;
+        private readonly Lazy<IGameBussinesManager> gameBussinesManager; 
        
-        public TournamentsController(ITournamentBussinesManager _tournamentBussinesManager)
+        public TournamentsController(ITournamentBussinesManager _tournamentBussinesManager,
+            Lazy<IGameBussinesManager> _gameBussinesManager)
         {
             tournamentBussinesManager = _tournamentBussinesManager;
+            gameBussinesManager = _gameBussinesManager;
         }
 
         [Route("api/Tournaments/GetAll")]

@@ -84,6 +84,8 @@ namespace BL.BussinesManagers.Classes
         public void Remove(TEntity entity)
         {
             Repository.Remove(entity);
+            UnitOfWork.Complete();
+
         }
 
         public void RemoveRange(IEnumerable<TEntity> entities)
