@@ -17,10 +17,10 @@ namespace APIs.Controllers
     public class TournamentsController : ApiController
     {
         private readonly ITournamentBussinesManager tournamentBussinesManager;
-        private readonly Lazy<IGameBussinesManager> gameBussinesManager; 
+        private readonly IGameBussinesManager gameBussinesManager; 
        
         public TournamentsController(ITournamentBussinesManager _tournamentBussinesManager,
-            Lazy<IGameBussinesManager> _gameBussinesManager)
+            IGameBussinesManager _gameBussinesManager)
         {
             tournamentBussinesManager = _tournamentBussinesManager;
             gameBussinesManager = _gameBussinesManager;
@@ -59,6 +59,7 @@ namespace APIs.Controllers
             try
             {
                 var tournament = tournamentBussinesManager.Get(id);
+                tournament.Game = gameBussinesManager.Get(tournament.GameId);
                 return Request.CreateResponse(HttpStatusCode.OK,
                   new CustomResponse<Tournament>()
                   {
@@ -85,6 +86,7 @@ namespace APIs.Controllers
         {
             try
             {
+                
                 tournamentBussinesManager.Add(tournament);
                 return Request.CreateResponse(HttpStatusCode.OK,
                                   new CustomResponse<Tournament>()
