@@ -55,10 +55,16 @@
   <ItemGroup>
     <Compile Include="BussinesManagers\Classes\BaseBussinesManager.cs" />
     <Compile Include="BussinesManagers\Classes\GameBussinesManager.cs" />
+    <Compile Include="BussinesManagers\Classes\LegBussinessManager.cs" />
+    <Compile Include="BussinesManagers\Classes\PhaseBussinesManager.cs" />
     <Compile Include="BussinesManagers\Classes\TournamentBussinesManager.cs" />
+    <Compile Include="BussinesManagers\Classes\TournamentPhaseBussinesManager.cs" />
     <Compile Include="BussinesManagers\Interfaces\IBaseBussinesManager.cs" />
     <Compile Include="BussinesManagers\Interfaces\IGameBussinesManager.cs" />
+    <Compile Include="BussinesManagers\Interfaces\ILegBussinessManager.cs" />
+    <Compile Include="BussinesManagers\Interfaces\IPhaseBussinesManager.cs" />
     <Compile Include="BussinesManagers\Interfaces\ITournamentBussinesManager.cs" />
+    <Compile Include="BussinesManagers\Interfaces\ITournamentPhaseBussinesManager.cs" />
     <Compile Include="Enums\ResponseCodeEnum.cs" />
     <Compile Include="Helpers\AutoGenerators.cs" />
     <Compile Include="Helpers\EnumAdditionalAttributes.cs" />
