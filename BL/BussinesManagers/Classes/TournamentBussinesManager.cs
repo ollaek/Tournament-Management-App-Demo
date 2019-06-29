@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QR_Code_Service;
 
 namespace BL.BussinesManagers.Classes
 {
@@ -21,8 +22,11 @@ namespace BL.BussinesManagers.Classes
 
         public new void Add(Tournament tournament)
         {
-            GeneralValidator Validator = new GeneralValidator(this); 
-            tournament.Tag = Validator.ValidateTag(6);
+            GeneralValidator validator = new GeneralValidator(this); 
+            var tag = validator.ValidateTag(6);
+            QR_Code_Generator generator = new QR_Code_Generator();
+            tournament.QRCodePath = generator.Generate_QRCode(tag);
+            tournament.Tag = tag;
             tournament.CreationDate = DateTime.Now;
             Repository.Add(tournament);
             UnitOfWork.Complete();

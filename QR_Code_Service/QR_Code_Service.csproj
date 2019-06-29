@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{382693E8-E85A-4E17-B90E-944382A43AAD}</ProjectGuid>
+    <ProjectGuid>{BB55925D-9248-456D-A292-32A8A641FE7F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BL</RootNamespace>
-    <AssemblyName>BL</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>QR_Code_Service</RootNamespace>
+    <AssemblyName>QR_Code_Service</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,19 +31,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="QRCoder, Version=1.3.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.6\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,34 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BussinesManagers\Classes\BaseBussinesManager.cs" />
-    <Compile Include="BussinesManagers\Classes\GameBussinesManager.cs" />
-    <Compile Include="BussinesManagers\Classes\LegBussinessManager.cs" />
-    <Compile Include="BussinesManagers\Classes\PhaseBussinesManager.cs" />
-    <Compile Include="BussinesManagers\Classes\TournamentBussinesManager.cs" />
-    <Compile Include="BussinesManagers\Classes\TournamentPhaseBussinesManager.cs" />
-    <Compile Include="BussinesManagers\Interfaces\IBaseBussinesManager.cs" />
-    <Compile Include="BussinesManagers\Interfaces\IGameBussinesManager.cs" />
-    <Compile Include="BussinesManagers\Interfaces\ILegBussinessManager.cs" />
-    <Compile Include="BussinesManagers\Interfaces\IPhaseBussinesManager.cs" />
-    <Compile Include="BussinesManagers\Interfaces\ITournamentBussinesManager.cs" />
-    <Compile Include="BussinesManagers\Interfaces\ITournamentPhaseBussinesManager.cs" />
-    <Compile Include="Enums\ResponseCodeEnum.cs" />
-    <Compile Include="Helpers\AutoGenerators.cs" />
-    <Compile Include="Helpers\EnumAdditionalAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validators\GeneralValidator.cs" />
-    <Compile Include="ViewModels\CustomResponse.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{3E383277-F489-4A28-9039-1AF163A65CE5}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QR_Code_Service\QR_Code_Service.csproj">
-      <Project>{bb55925d-9248-456d-a292-32a8a641fe7f}</Project>
-      <Name>QR_Code_Service</Name>
-    </ProjectReference>
+    <Compile Include="QR_Code_Generator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

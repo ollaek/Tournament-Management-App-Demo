@@ -52,32 +52,6 @@ namespace APIs.Controllers
             }
         }
 
-        [Route("api/Tournaments/GetById")]
-        [HttpGet]
-        public HttpResponseMessage GetById(int id)
-        {
-            try
-            {
-                var tournament = tournamentBussinesManager.Get(id);
-                tournament.Game = gameBussinesManager.Get(tournament.GameId);
-                return Request.CreateResponse(HttpStatusCode.OK,
-                  new CustomResponse<Tournament>()
-                  {
-                      ResponseCode = (int)ResponseCodeEnum.Success,
-                      ResponseMessage = ResponseCodeEnum.Success.GetDescription(),
-                      ReturnObject = tournament
-                  });
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest,
-                  new CustomResponse<Tournament>()
-                  {
-                      ResponseCode = (int)ResponseCodeEnum.Error,
-                      ResponseMessage = ResponseCodeEnum.Error.GetDescription()
-                  });
-            }
-        }
         [Route("api/Tournaments/GetAllByGameId")]
         [HttpGet]
         public HttpResponseMessage GetAllByGameId(int id)
@@ -104,6 +78,60 @@ namespace APIs.Controllers
             }
         }
 
+        [Route("api/Tournaments/GetById")]
+        [HttpGet]
+        public HttpResponseMessage GetById(int id)
+        {
+            try
+            {
+                var tournament = tournamentBussinesManager.Get(id);
+                tournament.Game = gameBussinesManager.Get(tournament.GameId);
+                return Request.CreateResponse(HttpStatusCode.OK,
+                  new CustomResponse<Tournament>()
+                  {
+                      ResponseCode = (int)ResponseCodeEnum.Success,
+                      ResponseMessage = ResponseCodeEnum.Success.GetDescription(),
+                      ReturnObject = tournament
+                  });
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest,
+                  new CustomResponse<Tournament>()
+                  {
+                      ResponseCode = (int)ResponseCodeEnum.Error,
+                      ResponseMessage = ResponseCodeEnum.Error.GetDescription()
+                  });
+            }
+        }
+
+        [Route("api/Tournaments/GetByTag")]
+        [HttpGet]
+        public HttpResponseMessage GetByTag(string tag)
+        {
+            try
+            {
+                var tournament = tournamentBussinesManager.GetAll().Where(x=>x.Tag == tag).FirstOrDefault();
+                tournament.Game = gameBussinesManager.Get(tournament.GameId);
+                return Request.CreateResponse(HttpStatusCode.OK,
+                  new CustomResponse<Tournament>()
+                  {
+                      ResponseCode = (int)ResponseCodeEnum.Success,
+                      ResponseMessage = ResponseCodeEnum.Success.GetDescription(),
+                      ReturnObject = tournament
+                  });
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest,
+                  new CustomResponse<Tournament>()
+                  {
+                      ResponseCode = (int)ResponseCodeEnum.Error,
+                      ResponseMessage = ResponseCodeEnum.Error.GetDescription()
+                  });
+            }
+        }
+        
         [Route("api/Tournaments/Save")]
         [ResponseType(typeof(CustomResponse<Tournament>))]
         [HttpPost]

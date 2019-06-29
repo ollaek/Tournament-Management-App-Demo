@@ -25,5 +25,6 @@ namespace DAL.Core.Domain
         public int PlayersPerTeam { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime StartDate { get; set; }
+        public string QRCodePath { get; set; }
     }
 }

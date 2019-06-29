@@ -112,6 +112,10 @@
     <Compile Include="Migrations\201906281705019_Phases.Designer.cs">
       <DependentUpon>201906281705019_Phases.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906291213378_codepath.cs" />
+    <Compile Include="Migrations\201906291213378_codepath.Designer.cs">
+      <DependentUpon>201906291213378_codepath.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NinjectModules\HelperModule.cs" />
     <Compile Include="Persistence\My_DBContext.cs" />
@@ -129,7 +133,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Media\GamesImages\" />
     <Folder Include="Persistence\EntityConfigurations\" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906281705019_Phases.resx">
       <DependentUpon>201906281705019_Phases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906291213378_codepath.resx">
+      <DependentUpon>201906291213378_codepath.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
