@@ -5,11 +5,6 @@ using DAL.Core;
 using DAL.Core.Domain;
 using DAL.Core.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using QR_Code_Service;
 
 namespace BL.BussinesManagers.Classes
 {

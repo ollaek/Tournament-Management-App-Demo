@@ -23,7 +23,7 @@ namespace DAL.Persistence
         public virtual DbSet<Phase> Phases { get; set; }
         public virtual DbSet<Leg> Legs { get; set; }
         public virtual DbSet<TournamentPhase> TournamentPhases { get; set; }
-
+        public virtual DbSet<TournamentsType> TournamentsType { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

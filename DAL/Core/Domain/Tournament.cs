@@ -26,5 +26,11 @@ namespace DAL.Core.Domain
         public DateTime CreationDate { get; set; }
         public DateTime StartDate { get; set; }
         public string QRCodePath { get; set; }
+        [ForeignKey("TournamentsType")]
+        public int TournamentsTypeId { get; set; }
+        public TournamentsType TournamentsType { get; set; }
+        public string PrivatePassword { get; set; }
+        public ICollection<TournamentPhase> TournamentPhases { get; set; }
+
     }
 }

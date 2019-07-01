@@ -105,9 +105,9 @@ namespace APIs.Controllers
             }
         }
 
-        [Route("api/Tournaments/GetByTag")]
+        [Route("api/Tournaments/GetPublicTournamnet")]
         [HttpGet]
-        public HttpResponseMessage GetByTag(string tag)
+        public HttpResponseMessage GetPublicTournamnet(string tag)
         {
             try
             {
@@ -131,7 +131,34 @@ namespace APIs.Controllers
                   });
             }
         }
-        
+
+        [Route("api/Tournaments/GetPrivateTournamnet")]
+        [HttpGet]
+        public HttpResponseMessage GetPrivateTournamnet(string tag , string password)
+        {
+            try
+            {
+                var tournament = tournamentBussinesManager.GetAll().Where(x => x.Tag == tag && x.PrivatePassword == password).FirstOrDefault();
+                tournament.Game = gameBussinesManager.Get(tournament.GameId);
+                return Request.CreateResponse(HttpStatusCode.OK,
+                  new CustomResponse<Tournament>()
+                  {
+                      ResponseCode = (int)ResponseCodeEnum.Success,
+                      ResponseMessage = ResponseCodeEnum.Success.GetDescription(),
+                      ReturnObject = tournament
+                  });
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest,
+                  new CustomResponse<Tournament>()
+                  {
+                      ResponseCode = (int)ResponseCodeEnum.Error,
+                      ResponseMessage = ResponseCodeEnum.Error.GetDescription()
+                  });
+            }
+        }
+
         [Route("api/Tournaments/Save")]
         [ResponseType(typeof(CustomResponse<Tournament>))]
         [HttpPost]

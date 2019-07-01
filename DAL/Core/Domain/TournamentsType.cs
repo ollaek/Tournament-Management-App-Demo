@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace DAL.Core.Domain
 {
-    public class Leg
+    public class TournamentsType
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Title { get; set; }
+        public string Type { get; set; }
         public string Description { get; set; }
-        public ICollection<TournamentPhase> TournamentPhases { get; set; }
 
+        public ICollection<Tournament> Tournaments { get; set; }
     }
 }

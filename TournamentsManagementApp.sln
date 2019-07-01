@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackEnd", "BackEnd\BackEnd.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{382693E8-E85A-4E17-B90E-944382A43AAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QR_Code_Service", "QR_Code_Service\QR_Code_Service.csproj", "{BB55925D-9248-456D-A292-32A8A641FE7F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{382693E8-E85A-4E17-B90E-944382A43AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{382693E8-E85A-4E17-B90E-944382A43AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{382693E8-E85A-4E17-B90E-944382A43AAD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB55925D-9248-456D-A292-32A8A641FE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB55925D-9248-456D-A292-32A8A641FE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB55925D-9248-456D-A292-32A8A641FE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB55925D-9248-456D-A292-32A8A641FE7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,5 +21,8 @@ namespace DAL.Core.Domain
         public Phase Phase { get; set; }
         public int PhaseOrder { get; set; }
         public DateTime CreationDate { get; set; }
+        [ForeignKey("Leg")]
+        public int LegId { get; set; }
+        public Leg Leg { get; set; }
     }
 }

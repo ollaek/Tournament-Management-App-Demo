@@ -15,9 +15,9 @@ namespace DAL.Core.Domain
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        [ForeignKey("Leg")]
-        public int LegId { get; set; }
-        public Leg Leg { get; set; }
+        
+        public ICollection<TournamentPhase> TournamentPhases { get; set; }
+
 
     }
 }

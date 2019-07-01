@@ -41,10 +41,18 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="QRCoder, Version=1.3.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.6\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +76,7 @@
     <Compile Include="Enums\ResponseCodeEnum.cs" />
     <Compile Include="Helpers\AutoGenerators.cs" />
     <Compile Include="Helpers\EnumAdditionalAttributes.cs" />
+    <Compile Include="Helpers\QR_Code_Generator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\GeneralValidator.cs" />
     <Compile Include="ViewModels\CustomResponse.cs" />
@@ -76,10 +85,6 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{3E383277-F489-4A28-9039-1AF163A65CE5}</Project>
       <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QR_Code_Service\QR_Code_Service.csproj">
-      <Project>{bb55925d-9248-456d-a292-32a8a641fe7f}</Project>
-      <Name>QR_Code_Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

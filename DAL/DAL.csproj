@@ -93,6 +93,7 @@
     <Compile Include="Core\Domain\Phase.cs" />
     <Compile Include="Core\Domain\Tournament.cs" />
     <Compile Include="Core\Domain\TournamentPhase.cs" />
+    <Compile Include="Core\Domain\TournamentsType.cs" />
     <Compile Include="Core\Domain\User.cs" />
     <Compile Include="Core\Domain\UserClaim.cs" />
     <Compile Include="Core\Domain\UserLogin.cs" />
@@ -115,6 +116,14 @@
     <Compile Include="Migrations\201906291213378_codepath.cs" />
     <Compile Include="Migrations\201906291213378_codepath.Designer.cs">
       <DependentUpon>201906291213378_codepath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906291811389_tourtypessss.cs" />
+    <Compile Include="Migrations\201906291811389_tourtypessss.Designer.cs">
+      <DependentUpon>201906291811389_tourtypessss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906301402045_legs.cs" />
+    <Compile Include="Migrations\201906301402045_legs.Designer.cs">
+      <DependentUpon>201906301402045_legs.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NinjectModules\HelperModule.cs" />
@@ -147,6 +156,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906291213378_codepath.resx">
       <DependentUpon>201906291213378_codepath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906291811389_tourtypessss.resx">
+      <DependentUpon>201906291811389_tourtypessss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906301402045_legs.resx">
+      <DependentUpon>201906301402045_legs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
