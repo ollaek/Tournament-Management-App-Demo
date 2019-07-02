@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.202
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIs", "APIs\APIs.csproj", "{FFC40D37-9D8D-4E38-8ADB-F507E3FE5536}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackEnd", "BackEnd\BackEnd.csproj", "{827E0CF8-4FB2-4454-880B-739140FD2268}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{382693E8-E85A-4E17-B90E-944382A43AAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMA.BackEnd", "TMA.BackEnd\TMA.BackEnd.csproj", "{6ABB2520-3FB1-43D3-860A-4E480582B9AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{382693E8-E85A-4E17-B90E-944382A43AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{382693E8-E85A-4E17-B90E-944382A43AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{382693E8-E85A-4E17-B90E-944382A43AAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ABB2520-3FB1-43D3-860A-4E480582B9AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ABB2520-3FB1-43D3-860A-4E480582B9AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ABB2520-3FB1-43D3-860A-4E480582B9AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ABB2520-3FB1-43D3-860A-4E480582B9AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

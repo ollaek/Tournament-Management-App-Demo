@@ -13,6 +13,7 @@ using System.Web.Http.Description;
 
 namespace APIs.Controllers
 {
+    [Authorize]
     public class GamesController : ApiController
     {
         private readonly IGameBussinesManager gameBussinesManager;
@@ -20,7 +21,6 @@ namespace APIs.Controllers
         {
             gameBussinesManager = _gameBussinesManager;
         }
-
         [Route("api/Games/GetAll")]
         [HttpGet]
         public HttpResponseMessage GetAll()

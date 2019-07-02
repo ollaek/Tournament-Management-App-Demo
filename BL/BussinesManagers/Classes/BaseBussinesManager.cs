@@ -30,8 +30,7 @@ namespace BL.BussinesManagers.Classes
         }
 
         protected IRepository<TEntity> Repository { get; set; }
-        protected IUnitOfWork UnitOfWork { get; set; }
-        IUnitOfWork IBaseBussinesManager<TEntity>.UnitOfWork { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IUnitOfWork UnitOfWork { get; set; }
 
         public TEntity Get(int id)
         {
