@@ -125,6 +125,10 @@
     <Compile Include="Migrations\201906301402045_legs.Designer.cs">
       <DependentUpon>201906301402045_legs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910010815150_userprofilepic.cs" />
+    <Compile Include="Migrations\201910010815150_userprofilepic.Designer.cs">
+      <DependentUpon>201910010815150_userprofilepic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NinjectModules\HelperModule.cs" />
     <Compile Include="Persistence\My_DBContext.cs" />
@@ -162,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906301402045_legs.resx">
       <DependentUpon>201906301402045_legs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910010815150_userprofilepic.resx">
+      <DependentUpon>201910010815150_userprofilepic.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
