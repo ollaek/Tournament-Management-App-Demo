@@ -264,7 +264,7 @@ namespace TMA.BackEnd.Controllers
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user);
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else
@@ -357,7 +357,7 @@ namespace TMA.BackEnd.Controllers
                 return InternalServerError();
             }
 
-            var user = new Admin() { UserName = model.Email, Email = model.Email };
+            var user = new Admin() { UserName = model.UserName, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user);
             if (!result.Succeeded)

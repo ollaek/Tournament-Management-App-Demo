@@ -55,6 +55,9 @@ namespace TMA.BackEnd.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        public string UserName { get; set; }
+        public string Provider { get; set; }
+        public string UserProviderId { get; set; }
     }
 
     public class RemoveLoginBindingModel
