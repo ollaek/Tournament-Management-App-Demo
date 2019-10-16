@@ -21,12 +21,6 @@ namespace TMA.BackEnd
 
             
         }
-        protected void Application_BeginRequest(object sender, EventArgs e)
-        {
-            if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
-            {
-                HttpContext.Current.Response.Flush();
-            }
-        }
+      
     }
 }
