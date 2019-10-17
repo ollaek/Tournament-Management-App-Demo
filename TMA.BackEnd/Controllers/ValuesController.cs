@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace TMA.BackEnd.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values

@@ -13,6 +13,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using Newtonsoft.Json.Linq;
 using TMA.BackEnd.Models;
 using TMA.BackEnd.Providers;
 using TMA.BackEnd.Results;
@@ -371,6 +372,105 @@ namespace TMA.BackEnd.Controllers
                 return GetErrorResult(result); 
             }
             return Ok();
+        }
+        [System.Web.Http.HttpPost]
+        [System.Web.Http.AllowAnonymous]
+        [System.Web.Http.Route("ExternalProviderRegister")]
+        public async Task<IHttpActionResult> ExternalProviderRegister(RegisterExternalBindingModel3 model)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(model.Token))
+                {
+                    return BadRequest("Invalid OAuth access token");
+                }
+
+                var tokenExpirationTimeSpan = TimeSpan.FromDays(360);
+                // Get the fb access token and make a graph call to the /me endpoint
+                var fbUser = await VerifyFacebookAccessToken(model.Token);
+                if (fbUser?.Email == null)
+                {
+                    return BadRequest("Invalid OAuth access token");
+                }
+
+                // Check if the user is already registered
+                var user = await UserManager.FindByEmailAsync(fbUser.Email);
+                // If not, register it
+                if (user == null)
+                {
+                    var userPassword = "User" + fbUser.ID.ToString();
+                    var randomPassword = System.Web.Security.Membership.GeneratePassword(10, 0) + "tma@";
+                    user = new Admin() { UserName = fbUser.Email, Email = fbUser.Email, /*Name = string.IsNullOrWhiteSpace(fbUser.Name) ? model.Name : fbUser.Name, PhoneNumber = model.PhoneNumber, Photo = model.Photo, CountryCode = model.CountryCode */};
+                    user.Id = Guid.NewGuid().ToString();
+                    IdentityResult result = await UserManager.CreateAsync(user, userPassword + randomPassword);
+                   
+                    if (!result.Succeeded)
+                    {
+                        return GetErrorResult(result);
+
+                    }
+
+
+                   
+                }
+                return Ok(GenerateLocalAccessTokenResponse(user.UserName, user.Id));
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+
+        }
+        private async Task<FacebookUserViewModel> VerifyFacebookAccessToken(string accessToken)
+        {
+
+            FacebookUserViewModel fbUser = null;
+            var path = "https://graph.facebook.com/me?fields=id,name,email&access_token=" + accessToken;
+            var client = new HttpClient();
+            var uri = new Uri(path);
+            var response = await client.GetAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                fbUser = Newtonsoft.Json.JsonConvert.DeserializeObject<FacebookUserViewModel>(content);
+            }
+
+            return fbUser;
+        }
+        private JObject GenerateLocalAccessTokenResponse(string userName, string userId)
+        {
+            var tokenExpiration = TimeSpan.FromDays(360);
+
+            ClaimsIdentity identity = new ClaimsIdentity(OAuthDefaults.AuthenticationType);
+
+            identity.AddClaim(new Claim(ClaimTypes.Name, userName));
+            identity.AddClaim(new Claim(ClaimTypes.Role, "User"));
+            identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userId));
+
+            var props = new AuthenticationProperties()
+            {
+                IssuedUtc = DateTime.UtcNow,
+                ExpiresUtc = DateTime.UtcNow.Add(tokenExpiration),
+            };
+
+            var ticket = new AuthenticationTicket(identity, props);
+
+            var accessToken = Startup.OAuthOptions.AccessTokenFormat.Protect(ticket);
+
+            var user = UserManager.FindByEmail(userName);
+
+            JObject tokenResponse = new JObject(
+                                        new JProperty("userName", userName),
+                                        new JProperty("access_token", accessToken),
+                                        new JProperty("token_type", "bearer"),
+                                        new JProperty("UserId", user.Id),
+                                        new JProperty("expires_in", tokenExpiration.TotalSeconds.ToString()),
+                                        new JProperty(".issued", ticket.Properties.IssuedUtc.ToString()),
+                                        new JProperty(".expires", ticket.Properties.ExpiresUtc.ToString())
+        );
+            return tokenResponse;
         }
 
         protected override void Dispose(bool disposing)
